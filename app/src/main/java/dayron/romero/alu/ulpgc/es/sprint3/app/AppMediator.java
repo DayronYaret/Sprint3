@@ -8,6 +8,7 @@ import dayron.romero.alu.ulpgc.es.sprint3.master.MasterState;
 public class AppMediator extends Application {
   private MasterState masterstate;
   private DetailState detailState;
+  private ItemCount item;
 
   public AppMediator() {
     masterstate = new MasterState();
@@ -18,8 +19,8 @@ public class AppMediator extends Application {
     return masterstate;
   }
 
-  public void setMasterState(MasterState state) {
-    this.masterstate = state;
+  public void setMasterState(ItemCount item) {
+    this.item = item;
   }
 
   public DetailState getDetailState() {
@@ -28,5 +29,9 @@ public class AppMediator extends Application {
 
   public void setDetailState(DetailState state) {
     this.detailState = state;
+  }
+
+  public ItemCount getItem() {
+    return item;
   }
 }

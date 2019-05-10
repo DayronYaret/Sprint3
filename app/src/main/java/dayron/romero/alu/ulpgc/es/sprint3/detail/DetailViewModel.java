@@ -1,6 +1,9 @@
 package dayron.romero.alu.ulpgc.es.sprint3.detail;
 
+import dayron.romero.alu.ulpgc.es.sprint3.app.ItemCount;
+
 public class DetailViewModel {
 
-  public String data;
+  public ItemCount item;
+  public int click;
 }

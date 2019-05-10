@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.Context;
 
 import dayron.romero.alu.ulpgc.es.sprint3.app.AppMediator;
+import dayron.romero.alu.ulpgc.es.sprint3.app.ItemCount;
+import dayron.romero.alu.ulpgc.es.sprint3.detail.DetailActivity;
 
 public class MasterRouter implements MasterContract.Router {
 
@@ -19,13 +21,13 @@ public class MasterRouter implements MasterContract.Router {
   @Override
   public void navigateToNextScreen() {
     Context context = mediator.getApplicationContext();
-    Intent intent = new Intent(context, MasterActivity.class);
+    Intent intent = new Intent(context, DetailActivity.class);
     context.startActivity(intent);
   }
 
   @Override
-  public void passDataToNextScreen(MasterState state) {
-    mediator.setMasterState(state);
+  public void passDataToNextScreen(ItemCount item) {
+    mediator.setMasterState(item);
   }
 
   @Override

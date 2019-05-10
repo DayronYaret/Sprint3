@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import dayron.romero.alu.ulpgc.es.sprint3.app.AppMediator;
+import dayron.romero.alu.ulpgc.es.sprint3.app.ItemCount;
 
 public class DetailRouter implements DetailContract.Router {
 
@@ -17,20 +18,8 @@ public class DetailRouter implements DetailContract.Router {
   }
 
   @Override
-  public void navigateToNextScreen() {
-    Context context = mediator.getApplicationContext();
-    Intent intent = new Intent(context, DetailActivity.class);
-    context.startActivity(intent);
-  }
-
-  @Override
-  public void passDataToNextScreen(DetailState state) {
-    mediator.setDetailState(state);
-  }
-
-  @Override
-  public DetailState getDataFromPreviousScreen() {
-    DetailState state = mediator.getDetailState();
-    return state;
+  public ItemCount getDataFromPreviousScreen() {
+    ItemCount item = mediator.getItem();
+    return item;
   }
 }

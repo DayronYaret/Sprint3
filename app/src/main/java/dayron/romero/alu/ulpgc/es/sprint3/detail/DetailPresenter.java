@@ -4,6 +4,8 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import dayron.romero.alu.ulpgc.es.sprint3.app.ItemCount;
+
 public class DetailPresenter implements DetailContract.Presenter {
 
   public static String TAG = DetailPresenter.class.getSimpleName();
@@ -37,22 +39,21 @@ public class DetailPresenter implements DetailContract.Presenter {
     // Log.e(TAG, "fetchData()");
 
     // set passed state
-    DetailState state = router.getDataFromPreviousScreen();
-    if (state != null) {
-      viewModel.data = state.data;
-    }
+    ItemCount item = router.getDataFromPreviousScreen();
+    viewModel.item = item;
+    view.get().displayData(viewModel);
 
-    if (viewModel.data == null) {
-      // call the model
-      String data = model.fetchData();
-
-      // set initial state
-      viewModel.data = data;
-    }
 
     // update the view
     view.get().displayData(viewModel);
 
+  }
+
+  @Override
+  public void increase() {
+    ItemCount increased= model.increase(viewModel.item);
+    viewModel.item = increased;
+    fetchData();
   }
 
 

@@ -1,6 +1,9 @@
 package dayron.romero.alu.ulpgc.es.sprint3.master;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
+
+import dayron.romero.alu.ulpgc.es.sprint3.app.ItemCount;
 
 interface MasterContract {
 
@@ -18,16 +21,24 @@ interface MasterContract {
     void injectRouter(Router router);
 
     void fetchData();
+
+    void selectItemListData(ItemCount item);
+
+    void add();
   }
 
   interface Model {
     String fetchData();
+
+    void add();
+
+    List<ItemCount> getItems();
   }
 
   interface Router {
     void navigateToNextScreen();
 
-    void passDataToNextScreen(MasterState state);
+    void passDataToNextScreen(ItemCount item);
 
     MasterState getDataFromPreviousScreen();
   }

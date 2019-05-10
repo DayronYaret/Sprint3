@@ -2,6 +2,8 @@ package dayron.romero.alu.ulpgc.es.sprint3.detail;
 
 import java.lang.ref.WeakReference;
 
+import dayron.romero.alu.ulpgc.es.sprint3.app.ItemCount;
+
 interface DetailContract {
 
   interface View {
@@ -18,17 +20,18 @@ interface DetailContract {
     void injectRouter(Router router);
 
     void fetchData();
+
+    void increase();
   }
 
   interface Model {
     String fetchData();
+
+    ItemCount increase(ItemCount item);
   }
 
   interface Router {
-    void navigateToNextScreen();
 
-    void passDataToNextScreen(DetailState state);
-
-    DetailState getDataFromPreviousScreen();
+    ItemCount getDataFromPreviousScreen();
   }
 }

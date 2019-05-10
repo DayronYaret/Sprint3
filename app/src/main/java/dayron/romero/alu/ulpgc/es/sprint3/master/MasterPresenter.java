@@ -4,6 +4,8 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import dayron.romero.alu.ulpgc.es.sprint3.app.ItemCount;
+
 public class MasterPresenter implements MasterContract.Presenter {
 
   public static String TAG = MasterPresenter.class.getSimpleName();
@@ -36,23 +38,20 @@ public class MasterPresenter implements MasterContract.Presenter {
   public void fetchData() {
     // Log.e(TAG, "fetchData()");
 
-    // set passed state
-    MasterState state = router.getDataFromPreviousScreen();
-    if (state != null) {
-      viewModel.data = state.data;
-    }
-
-    if (viewModel.data == null) {
-      // call the model
-      String data = model.fetchData();
-
-      // set initial state
-      viewModel.data = data;
-    }
-
-    // update the view
+    viewModel.items = model.getItems();
     view.get().displayData(viewModel);
 
+  }
+
+  @Override
+  public void selectItemListData(ItemCount item) {
+    router.passDataToNextScreen(item);
+    router.navigateToNextScreen();
+  }
+
+  @Override
+  public void add() {
+    model.add();
   }
 
 
