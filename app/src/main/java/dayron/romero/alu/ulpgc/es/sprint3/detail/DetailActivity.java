@@ -52,7 +52,8 @@ public class DetailActivity
     //Log.e(TAG, "displayData()");
 
     // deal with the data
-    ((TextView) findViewById(R.id.counterTextView)).setText(viewModel.item.getCount());
-    ((TextView) findViewById(R.id.clickTextView)).setText(viewModel.click);
+    ((TextView) findViewById(R.id.counterTextView)).setText(Integer.toString(viewModel.item.getCount()));
+    ((TextView) findViewById(R.id.clickTextView)).setText(Integer.toString(viewModel.click));
   }
+
 }

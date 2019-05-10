@@ -62,7 +62,7 @@ public class MasterAdapter extends RecyclerView.Adapter<MasterAdapter.ViewHolder
     holder.itemView.setTag(itemList.get(position));
     holder.itemView.setOnClickListener(clickListener);
 
-    holder.countTextView.setText(itemList.get(position).getCount());
+    holder.countTextView.setText(Integer.toString(itemList.get(position).getCount()));
   }
 
 

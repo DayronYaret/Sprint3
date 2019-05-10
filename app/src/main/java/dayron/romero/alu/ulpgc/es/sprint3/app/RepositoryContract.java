@@ -5,8 +5,10 @@ import java.util.List;
 public interface RepositoryContract {
   List<ItemCount> loadItem();
   void insertItem(ItemCount item);
-
+  int getClicks();
   void add();
 
-  ItemCount increase(ItemCount item);
+  ItemCount increase(int id);
+
+  ItemCount getItem(int id);
 }

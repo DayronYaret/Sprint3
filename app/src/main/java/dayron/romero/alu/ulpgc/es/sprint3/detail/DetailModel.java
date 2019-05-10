@@ -19,14 +19,21 @@ public class DetailModel implements DetailContract.Model {
   }
 
   @Override
-  public String fetchData() {
+  public int fetchData() {
     // Log.e(TAG, "fetchData()");
-    return "Hello";
+    return repositorio.getClicks();
+  }
+
+
+
+  @Override
+  public ItemCount increase(int id) {
+
+    return repositorio.increase(id);
   }
 
   @Override
-  public ItemCount increase(ItemCount item) {
-    ItemCount newItem = repositorio.increase(item);
-    return newItem;
+  public ItemCount fetchItem(int id) {
+    return repositorio.getItem(id);
   }
 }

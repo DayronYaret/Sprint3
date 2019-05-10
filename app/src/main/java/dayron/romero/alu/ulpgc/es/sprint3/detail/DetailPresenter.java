@@ -37,23 +37,25 @@ public class DetailPresenter implements DetailContract.Presenter {
   @Override
   public void fetchData() {
     // Log.e(TAG, "fetchData()");
-
     // set passed state
     ItemCount item = router.getDataFromPreviousScreen();
     viewModel.item = item;
+    viewModel.click= model.fetchData();
     view.get().displayData(viewModel);
-
 
     // update the view
-    view.get().displayData(viewModel);
 
   }
 
   @Override
   public void increase() {
-    ItemCount increased= model.increase(viewModel.item);
+    int id = viewModel.item.getId();
+    ItemCount increased = model.increase(id);
     viewModel.item = increased;
+    viewModel.click = model.fetchData();
+    viewModel.item = model.fetchItem(id);
     fetchData();
+
   }
 
 

@@ -34,4 +34,8 @@ public class AppMediator extends Application {
   public ItemCount getItem() {
     return item;
   }
+
+  public void setItem(ItemCount itemm) {
+    this.item = item;
+  }
 }

@@ -52,6 +52,7 @@ public class MasterPresenter implements MasterContract.Presenter {
   @Override
   public void add() {
     model.add();
+    fetchData();
   }
 
 

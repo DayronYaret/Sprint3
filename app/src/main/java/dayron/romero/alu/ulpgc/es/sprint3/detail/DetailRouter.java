@@ -20,6 +20,7 @@ public class DetailRouter implements DetailContract.Router {
   @Override
   public ItemCount getDataFromPreviousScreen() {
     ItemCount item = mediator.getItem();
+    mediator.setItem(null);
     return item;
   }
 }

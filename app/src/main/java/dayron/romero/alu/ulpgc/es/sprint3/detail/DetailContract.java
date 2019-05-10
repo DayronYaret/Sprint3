@@ -25,9 +25,10 @@ interface DetailContract {
   }
 
   interface Model {
-    String fetchData();
+    int fetchData();
 
-    ItemCount increase(ItemCount item);
+    ItemCount increase(int id);
+    ItemCount fetchItem(int id);
   }
 
   interface Router {
